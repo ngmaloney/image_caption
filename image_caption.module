@@ -16,7 +16,7 @@
 function image_caption_menu() {
   $items = array();
 
-  $items['admin/settings/image_caption'] = array(
+  $items['admin/config/media/image_caption'] = array(
     'title' => t('Image Caption Settings'),
     'description' => t('Configure image caption settings.'),
     'page callback' => 'drupal_get_form',
