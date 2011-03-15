@@ -44,6 +44,7 @@ function image_caption_admin_settings() {
     '#multiple' => TRUE,
     '#options' => $types
   );
+  //TODO: Add option for display types
   return system_settings_form($form);
 }
 
@@ -52,7 +53,7 @@ function image_caption_admin_settings() {
 * Add captioning javascript to page for certain node types
 */
 function image_caption_node_view($node, $view_mode, $langcode) {
-  if (in_array($node->type, variable_get('image_caption_node_types', array()))) {
+  if (in_array($node->type, variable_get('image_caption_node_types', array())) && in_array($view_mode, variable_get('image_caption_view_mode', array('full')))) {
     $path = drupal_get_path('module', 'image_caption');
     drupal_add_js($path.'/image_caption.js');
   }
